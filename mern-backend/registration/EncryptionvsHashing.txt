@@ -1,0 +1,15 @@
+Encryption---> Encode -> <- Decode
+
+Encryption is two way communication..
+
+           Encryption                 Decryption
+plain text ==========> encrypted text ========> plain text
+
+
+
+Hashing------> One way communication
+
+              hasing algorithm
+plain text ========> # ========> hashed text
+
+**we can not get plain text from hashed text

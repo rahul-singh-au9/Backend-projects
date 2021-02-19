@@ -8,11 +8,13 @@ const userRegister = require("./models/RegisterModel");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 // FOR PARSING THE JSON , WE DONT HAVE TO USE UN-NECESSARY BODY-PARSER PACKAGE BCS THE METHOD IS AVAILABLE INSIDE THE EXPRESS
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
+// FOR SERVING STATIC HTML FILES
 // app.use(express.static())
 
 app.set("view engine", "hbs");
