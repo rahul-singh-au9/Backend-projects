@@ -62,6 +62,31 @@ app.post("/register", async(req, res) => {
 
 })
 
+// USER LOG-IN FORM
+app.get("/login", (req, res) => {
+  res.render("login")
+})
+
+// CHECK LOGIN
+app.post("/login", async(req, res) => {
+  try{
+
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const user = await userRegister.findOne({email});
+
+    if(user.password === password){
+      res.status(201).render("index")
+    }else{
+      res.send(" <h1><center> email or password is wrong! </center></h1>")
+    }
+
+  }catch(err){
+    res.send(err)
+  }
+})
+
 // ROUTES THAT NOT BEEN DEFINED
 app.get("*", (req, res) => {
   res.send(" <h1> <center> You've tried reaching a route that doesn't exist. </center> </h1>")
