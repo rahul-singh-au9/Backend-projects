@@ -47,8 +47,8 @@ const registerSchema = new mongoose.Schema({
 registerSchema.methods.generateAuthToken = async function(){
 
   try{
-    console.log(this._id)
-    const token = jwt.sign({_id:this.id.toString()},"this_is_a_super_secret_or_private_key")
+    // console.log(this._id)
+    const token = jwt.sign({_id:this.id.toString()}, `${process.env.SECRET_KEY}`)
     this.tokens = this.tokens.concat({token:token})
     await this.save();
     return token
