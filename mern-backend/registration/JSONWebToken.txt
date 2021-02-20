@@ -5,6 +5,8 @@ https://flaviocopes.com/jwt/#:~:text=JSON%20Web%20Token%20is%20a,access%20tokens
 
 https://flaviocopes.com/graphql-auth-apollo-jwt-cookies/
 
+jwt.io
+
 
 JSON Web Token is a standard to create access tokens for an application.
 

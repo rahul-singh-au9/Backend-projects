@@ -57,22 +57,27 @@ app.post("/register", async(req, res) => {
         confirmPassword
       })
 
+      const token = await registeredUser.generateAuthToken()
+      console.log("registration token", token)
+
       const registered = await registeredUser.save();
-      res.status(201).render("index")
+      console.log(registered)
+
+      res.status(201).render("index");
 
     }else{
-      res.send("<h1> please fill correct password </h1>")
+      res.send("<h1> please fill correct password </h1>");
     }
 
   }catch(err){
-    res.send(err)
+    res.send(err);
   }
 
 })
 
 // USER LOG-IN FORM
 app.get("/login", (req, res) => {
-  res.render("login")
+  res.render("login");
 })
 
 // CHECK LOGIN
@@ -86,14 +91,17 @@ app.post("/login", async(req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
 
+    const token = await user.generateAuthToken()
+    console.log("login token", token)
+
     if(isMatch){
-      res.status(201).render("index")
+      res.status(201).render("index");
     }else{
-      res.send(" <h1><center> email or password is wrong! </center></h1>")
+      res.send(" <h1><center> email or password is wrong! </center></h1>");
     }
 
   }catch(err){
-    res.send(err)
+    res.send(err);
   }
 })
 
@@ -104,6 +112,6 @@ app.get("*", (req, res) => {
 
 // CONNECTING TO THE SERVER
 app.listen(PORT, () => {
-  console.log(`Server running on port: http://localhost:${PORT}`)
+  console.log(`Server running on port: http://localhost:${PORT}`);
 }
 )
