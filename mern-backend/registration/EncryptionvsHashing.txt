@@ -1,3 +1,5 @@
+                ----------------npm i bcryptjs---------------------
+
 Encryption---> Encode -> <- Decode
 
 Encryption is two way communication..

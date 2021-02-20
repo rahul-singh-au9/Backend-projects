@@ -26,9 +26,14 @@ const partialsPath = path.join(__dirname, "../templates/partials")
 app.set("views", viewsPath);
 hbs.registerPartials(partialsPath)
 
-// HOMEPAGE
+// HOME-PAGE
 app.get("/", (req, res)=>{
   res.render("index")
+})
+
+// ABOUT-PAGE
+app.get("/about", (req, res)=>{
+  res.render("about")
 })
 
 // USER REGISTRATION FORM
