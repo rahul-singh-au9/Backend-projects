@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
+const bcrypt = require("bcrypt");
 require ("./db/connection");
 const userRegister = require("./models/RegisterModel");
 
@@ -78,7 +79,9 @@ app.post("/login", async(req, res) => {
 
     const user = await userRegister.findOne({email});
 
-    if(user.password === password){
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if(isMatch){
       res.status(201).render("index")
     }else{
       res.send(" <h1><center> email or password is wrong! </center></h1>")

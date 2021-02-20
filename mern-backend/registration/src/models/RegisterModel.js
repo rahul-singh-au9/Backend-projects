@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const registerSchema = new mongoose.Schema({
 
@@ -32,6 +33,18 @@ const registerSchema = new mongoose.Schema({
   },
 
 });
+
+registerSchema.pre("save", async function(next){
+
+  if(this.isModified("password")){
+    console.log(`the current password is ${this.password}`);
+    this.password = await bcrypt.hash(this.password, 10);
+    console.log(`hashed password is ${this.password}`);
+
+    this.confirmPassword = undefined;
+  }
+  next();
+})
 
 // creating a new collection
 const userRegister = new mongoose.model("userRegister", registerSchema);
