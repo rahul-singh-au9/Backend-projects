@@ -1,0 +1,20 @@
+{
+  "name": "multer-image-uploader",
+  "version": "1.0.0",
+  "description": "uploading images using multer package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "rahul-singh-au9"
+  },
+  "author": "rahul singh",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
+  }
+}
