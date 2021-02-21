@@ -58,9 +58,24 @@ app.post("/register", async(req, res) => {
         confirmPassword
       })
 
+      // JWT TOKEN
       const token = await registeredUser.generateAuthToken()
       // console.log("registration token", token)
 
+
+      // STORING COOKIE
+      // The res.cookie() function is used to set the cookie name to value.
+      // The value parameter may be a string or object converted to JSON.
+      // SYNTAX:
+      // res.cookie(name, value, [options])
+
+      res.cookie("JWT", token, {
+        expires: new Date(Date.now() + 20000),
+        httpOnly: true
+      })
+      // console.log(cookie);
+
+      // SAVING DATA TO DB
       const registered = await registeredUser.save();
       // console.log(registered)
 
@@ -94,6 +109,12 @@ app.post("/login", async(req, res) => {
 
     const token = await user.generateAuthToken()
     // console.log("login token", token)
+
+    res.cookie("JWT", token, {
+        expires: new Date(Date.now() + 20000),
+        httpOnly: true,
+        // secure: true
+      })
 
     if(isMatch){
       res.status(201).render("index");

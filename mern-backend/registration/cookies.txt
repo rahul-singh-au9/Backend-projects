@@ -1,0 +1,7 @@
+-----------------------------COOKIES--------------------------------
+
+cookies are small files which are stored on a user's computer.
+they are designed to hold a modest amount of data specific to a particular client and website, and can be accessed either by the web server or the client computer.
+
+
+chrome ==> settings ==> cookies and other site data ==> see all cookies and site data 
