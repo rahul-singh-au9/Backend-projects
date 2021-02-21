@@ -1,0 +1,8 @@
+1. bcryptjs
+2. cookie-parser
+3. dotenv
+4. express
+5. hbs
+6. jsonwebtoken
+7. mongoose
+8. validator
