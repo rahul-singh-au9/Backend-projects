@@ -28,6 +28,7 @@ const partialsPath = path.join(__dirname, "../templates/partials");
 app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
 
+
 // HOME-PAGE
 app.get("/", (req, res)=>{
     res.render("index")
