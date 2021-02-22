@@ -1,0 +1,16 @@
+// // SETTING THE PATH
+// const staticPath = path.join(__dirname, "../public");
+// app.use(express.static(__dirname + '/public'));
+
+// // MIDDLEWARE
+// app.use(express.static(staticPath))
+
+
+
+
+
+--------------bootstrap and jquery------------------------------------
+
+// app.use("/css", express.static(path.join(__dirname, "../node_modules/bootstrap/dist/css")));
+// app.use("/js", express.static(path.join(__dirname, "../node_modules/bootstrap/dist/js")));
+// app.use("/jq", express.static(path.join(__dirname, "../node_modules/jquery/dist")))
